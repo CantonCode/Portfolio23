@@ -1,0 +1,14 @@
+.Header {
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    padding: 0.2em;
+    margin-bottom: 2em;
+    background-color: rgb(49, 45, 45);
+    color: #ffffff;
+    border-radius: 5em;
+  }
+
+
