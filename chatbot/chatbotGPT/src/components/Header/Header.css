@@ -11,4 +11,10 @@
     border-radius: 5em;
   }
 
+  .backdropFilter{
+    backdrop-filter: blur(100px);
+    color: #ffffff;
+    
+  }
+
 

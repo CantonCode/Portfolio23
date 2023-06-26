@@ -7,18 +7,19 @@ import { User, List } from 'grommet-icons'
 
 function Header() {
   return (
-    <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary" data-bs-theme="dark" style={{borderRadius:"20px",padding:'20px'}} >
+    <Navbar collapseOnSelect expand="lg" className="backdropFilter"  style={{borderRadius:"2rem",border:".2rem solid #2a2b37",padding:'1rem 2rem',backgroundColor:'rgba(42,43,56,.5)'}} >
     <Container>
-      <Navbar.Brand href="#home">Conor's Portfolio</Navbar.Brand>
+      <Navbar.Brand href="#home" style={{color:"white"}}>Conor's Portfolio</Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse className="justify-content-end" id="responsive-navbar-nav" >
         <Nav className="" >
-          <Nav.Link href="#about" style={{border: '1px solid white',borderRadius: '30px',margin:'5px'}}><User color='white' style={{padding:"2px"}}/>About Me</Nav.Link>
-          <Nav.Link href="#Experience" style={{border: '1px solid white',borderRadius: '30px',margin:'5px'}}><List color='white' style={{padding:"2px"}}/>Experience</Nav.Link>
+          <Nav.Link href="#about" style={{border: '1px solid rgba(205, 205, 205, 0.5)',borderRadius: '30px',margin:'5px', color:'rgba(205, 205, 205, 0.5)'}}><User color='rgba(205, 205, 205, 0.5)' style={{padding:"2px"}}/>About Me</Nav.Link>
+          <Nav.Link href="#Experience" style={{border: '1px solid rgba(205, 205, 205, 0.5)',borderRadius: '30px',margin:'5px',color:'rgba(205, 205, 205, 0.5)'}}><List color='rgba(205, 205, 205, 0.5)' style={{padding:"2px"}}/>Experience</Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Container>
   </Navbar>
+
     
   )
 }
