@@ -1,6 +1,9 @@
 import "./Tiles.css";
 import '../../../node_modules/react-tiles-dnd/esm/index.css'
 import { TilesContainer, RenderTileFunction } from "react-tiles-dnd";
+// import { useNavigate } from "react-router-dom";
+
+// const navigate = useNavigate();
 
 const tiles = [
 
@@ -28,19 +31,30 @@ const tileSize = (tile: typeof tiles[0]) => ({
   rowSpan: tile.rows
 });
 
+const tileName = (tile: typeof tiles[0]) => ({
+  name: tile.text,
+})
+
+const shoot = () => {
+  alert("Great Shot!");
+}
+
+const myFunction = function (someArgument: any) {
+  alert("Great Shot!");
+}
+
 export default function Tiles() {
   return (
     <div className="App" style={{ justifyContent: "center"}}>
       <h1>Fixed tile width, variable columns</h1>
       <p>Try to enlarge/reduce the screen, and the container will adapt</p>
-      <div onClick={() => alert("Hello!")} >
+      <div >
       <TilesContainer
         data={tiles}
         renderTile={render}
         tileSize={tileSize}
         forceTileWidth={0}
         forceTileHeight={0}
-        
       ></TilesContainer>
       </div>
 

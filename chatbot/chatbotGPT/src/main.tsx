@@ -4,6 +4,7 @@ import './index.css'
 
 import Header from './components/Header/Header.tsx'
 import App from './App.tsx'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter } from 'react-router-dom'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
