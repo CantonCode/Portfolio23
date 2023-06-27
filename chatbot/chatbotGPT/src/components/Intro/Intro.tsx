@@ -1,14 +1,31 @@
 import React from 'react'
 import './Intro.css'
-import { Container } from 'react-bootstrap'
+import { Col, Container, Image, Row } from 'react-bootstrap'
 import { User, List } from 'grommet-icons'
 
 
 
 function Intro() {
   return (
-    <Container className='introText' style={{height:'50rem',color:'white', textAlign:"left"}} >
-        <span>Conor Canton</span>
+    <Container className='' style={{height:'50rem',color:'white'}} >
+      <Row style={{height:'100%'}}>
+        <Col style={{height:'100%',alignItems:'center',display:'flex',flexDirection:'column',justifyContent:'center'}}>
+          <Image src="\public\picofme.png" fluid></Image>
+        </Col>
+        <Col style={{height:'100%',alignItems:'center',display:'flex',flexDirection:'column',justifyContent:'center'}}>
+          <div style={{fontSize:"5rem", width:'100%'}}>
+            <span>Conor Canton</span>
+          </div>
+          <div style={{fontSize:"2rem"}}>
+              <span>Full-Stack Developer</span>
+              <br></br>
+              <span>Problem Solver</span>
+              <br></br>
+              <span>Adventurist</span>
+          </div>
+        </Col>     
+      </Row>
+        {/* <span>Conor Canton</span>
         <br></br>
         <div style={{fontSize:"4rem"}}>
             <span>Full-Stack Developer</span>
@@ -16,7 +33,7 @@ function Intro() {
             <span>Problem Solver</span>
             <br></br>
             <span>Adventourist</span>
-        </div>
+        </div> */}
         
     </Container>
 
