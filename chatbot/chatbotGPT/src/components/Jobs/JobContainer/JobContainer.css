@@ -1,0 +1,12 @@
+
+.nav-items {
+border-left: 1px solid lightgray;/*will change background-color of element */
+}
+
+.nav-items .active{
+border-left: 1px solid white;
+}
+
+.nav-link .a{
+color: white;
+}
