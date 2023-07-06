@@ -12,10 +12,10 @@ function Home() {
     
     return (
       <div>
-        {/* <Intro/>
-        <About/> */}
-        <ProjectGrid/>
+        <Intro/>
+        <About/>
         <JobContainer/>
+        <ProjectGrid/>
         <Socials/>
       </div>
         
