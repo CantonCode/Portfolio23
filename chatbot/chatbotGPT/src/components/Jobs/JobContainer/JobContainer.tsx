@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './JobContainer.css'
 import { Button, Card, Col, Container, Nav, Row, Tab, TabContainer, Tabs } from 'react-bootstrap'
 import { generateId } from '../../../helpers/generateIDHelper'
+import JobDetails from './JobDetails/JobDetails';
 
 const defaultVal = [
     {
@@ -28,7 +29,7 @@ const defaultVal = [
 
 // const ProjectCard = (props) =>  {
 function JobContainer(){
-    const [job, setJob] = useState(defaultVal);
+    const [jobs, setJob] = useState(defaultVal);
 
   return (
     <Container >
@@ -36,7 +37,7 @@ function JobContainer(){
             <Row xs={12} sm={12} md={8} style={{maxWidth:'100%',justifyContent:'center'}}>
                 <Col sm={{ span: 2, offset: 0 }}>
                     <Nav className="flex-md-column" style={{}}>
-                        {job.map((job, k) => (
+                        {jobs.map((job, k) => (
                             <Nav.Item key={job.id} className='nav-items'>
                                 <Nav.Link className='nav-links' eventKey={k}>{job.company}</Nav.Link>
                             </Nav.Item>
@@ -46,26 +47,8 @@ function JobContainer(){
                 </Col>
                 <Col sm={{ span: 6, offset: 0 }}>
                     <Tab.Content style={{color:'white'}}>
-                        {job.map((job, k) => (
-                            <Tab.Pane key={job.id} eventKey={k}>
-                                <Container>
-                                    <Row style={{textAlign:'start'}}>
-                                        <Col xs={12}>
-                                            {job.role}
-                                        </Col>
-                                        <Col xs={12}>
-                                            {job.date}
-                                        </Col>
-                                        <Col xs={12}>
-                                            <ul>
-                                                {job.tasks.map((task, z) => (
-                                                    <li key={z}>{task}</li>
-                                                ))}
-                                            </ul>
-                                        </Col>
-                                    </Row>
-                                </Container>
-                                </Tab.Pane>
+                        {jobs.map((job, k) => (
+                            <JobDetails job={job} k={k}/>
                         ))}
                     </Tab.Content>
                 </Col>
