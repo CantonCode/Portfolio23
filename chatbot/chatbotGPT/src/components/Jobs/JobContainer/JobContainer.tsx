@@ -25,8 +25,44 @@ function JobContainer(){
                 </Col>
                 <Col sm={{ span: 6, offset: 0 }}>
                     <Tab.Content style={{color:'white'}}>
-                        <Tab.Pane eventKey="first">First tab content</Tab.Pane>
-                        <Tab.Pane eventKey="second">Second tab content</Tab.Pane>
+                        <Tab.Pane eventKey="first">
+                            <Container>
+                                <Row style={{textAlign:'start'}}>
+                                    <Col xs={12}>
+                                    Software Engineer @ JRI America
+                                    </Col>
+                                    <Col xs={12}>
+                                    May 2022 - August 2023
+                                    </Col>
+                                    <Col xs={12}>
+                                    <ul>
+                                        <li>Developed a web application using React, Redux, and Typescript to display data from a REST API</li>
+                                        <li>Created a REST API using Node.js and Express to serve data from a MySQL database</li>
+                                        <li>Implemented a CI/CD pipeline using Jenkins to automate the deployment of the web application</li>
+                                    </ul>
+                                    </Col>
+                                </Row>
+                            </Container>
+                        </Tab.Pane>
+                        <Tab.Pane eventKey="second">
+                        <Container>
+                                <Row style={{textAlign:'start'}}>
+                                    <Col xs={12}>
+                                    Software Engineer @ Dairymaster
+                                    </Col>
+                                    <Col xs={12}>
+                                    April 2021 - April 2022
+                                    </Col>
+                                    <Col xs={12}>
+                                    <ul>
+                                        <li>Developed a web application using React, Redux, and Typescript to display data from a REST API</li>
+                                        <li>Created a REST API using Node.js and Express to serve data from a MySQL database</li>
+                                        <li>Implemented a CI/CD pipeline using Jenkins to automate the deployment of the web application</li>
+                                    </ul>
+                                    </Col>
+                                </Row>
+                            </Container>
+                        </Tab.Pane>
                     </Tab.Content>
                 </Col>
                 
