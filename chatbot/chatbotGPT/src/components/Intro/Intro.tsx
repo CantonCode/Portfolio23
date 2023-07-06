@@ -21,7 +21,7 @@ function Intro() {
               <br></br>
               <span>Problem Solver</span>
               <br></br>
-              <span>Adventurist</span>
+              
           </div>
         </Col>     
       </Row>

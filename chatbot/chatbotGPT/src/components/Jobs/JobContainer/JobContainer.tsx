@@ -3,6 +3,7 @@ import './JobContainer.css'
 import { Button, Card, Col, Container, Nav, Row, Tab, TabContainer, Tabs } from 'react-bootstrap'
 import { generateId } from '../../../helpers/generateIDHelper'
 import JobDetails from './JobDetails/JobDetails';
+import { Centos } from 'grommet-icons';
 
 const defaultVal = [
     {
@@ -32,11 +33,21 @@ function JobContainer(){
     const [jobs, setJob] = useState(defaultVal);
 
   return (
-    <Container >
-        <TabContainer defaultActiveKey="0" >
-            <Row xs={12} sm={12} md={8} style={{maxWidth:'100%',justifyContent:'center'}}>
-                <Col sm={{ span: 2, offset: 0 }}>
-                    <Nav className="flex-md-column" style={{}}>
+    <Container style={{height:'20rem',justifyItems:'center',marginTop:'5rem',marginBottom:'5rem',}} >
+        <Container style={{display:'flex',paddingBottom:'2.5rem'}}>
+                    <Col sm={{span:7,offset:2}} style={{display:'flex',textAlign:'center',alignItems:'center'}}>
+                        <h1 style={{color:'white'}}>Experience</h1>
+                        <hr style={{color:'white', width:'inherit',marginLeft:'3rem'}}/>
+                    </Col>
+                </Container>
+        
+        <TabContainer defaultActiveKey="0">
+            
+            <Row xs={12} sm={12} md={8} style={{maxWidth:'100%',justifyContent:'center',height:'100%',overflow:'auto'}}>
+                
+                
+                <Col sm={{ span: 2, offset: 0 }} style={{}}>
+                    <Nav className="flex-md-column" style={{alignItems:"start"}}>
                         {jobs.map((job, k) => (
                             <Nav.Item key={job.id} className='nav-items'>
                                 <Nav.Link className='nav-links' eventKey={k}>{job.company}</Nav.Link>
@@ -45,7 +56,7 @@ function JobContainer(){
                         }
                     </Nav>
                 </Col>
-                <Col sm={{ span: 6, offset: 0 }}>
+                <Col sm={{ span: 6, offset: 0 }} >
                     <Tab.Content style={{color:'white'}}>
                         {jobs.map((job, k) => (
                             <JobDetails job={job} k={k}/>

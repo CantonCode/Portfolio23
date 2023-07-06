@@ -4,6 +4,7 @@ import Intro from "../../components/Intro/Intro";
 import JobContainer from "../../components/Jobs/JobContainer/JobContainer";
 import ProjectCard from "../../components/Projects/ProjectCard/ProjectCard";
 import ProjectGrid from "../../components/Projects/ProjectGrid/ProjectGrid";
+import Socials from "../../components/Socials/Socials";
 import Tiles from "../../components/Tiles/Tiles";
 
 
@@ -15,6 +16,7 @@ function Home() {
         <About/> */}
         <ProjectGrid/>
         <JobContainer/>
+        <Socials/>
       </div>
         
   
