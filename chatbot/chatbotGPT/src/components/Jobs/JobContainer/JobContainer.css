@@ -1,12 +1,19 @@
 
 .nav-items {
 border-left: 1px solid lightgray;/*will change background-color of element */
+color: white !important;
+}
+
+.nav-items:hover{
+background-color: #242424aa;
 }
 
 .nav-items .active{
 border-left: 1px solid white;
+color: white !important;
+background-color: #242424aa;
 }
 
-.nav-link .a{
-color: white;
-}
+.nav-link {
+    color: lightgrey !important;
+    }
