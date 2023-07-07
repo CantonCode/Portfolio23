@@ -7,7 +7,7 @@ import { Col, Container, Image, Row } from 'react-bootstrap'
 
 function About() {
   return (
-    <Container className='' style={{color:'white'}} >
+    <Container id='about' className='' style={{color:'white'}} >
       <Container style={{display:'flex',paddingBottom:'2.5rem'}}>
                     <Col sm={{span:7,offset:2}} style={{display:'flex',textAlign:'center',alignItems:'center'}}>
                         <h1 style={{color:'white'}}>About Me</h1>
