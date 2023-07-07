@@ -27,7 +27,7 @@ const projectData = [
 // const ProjectCard = (props) =>  {
 function ProjectGrid(){
   return (
-    <Container id='projects'>
+    <Container id='projects' style={{height:'75vh',alignItems:'center'}}>
         <Container style={{display:'flex',paddingBottom:'2.5rem'}}>
                     <Col sm={{span:7,offset:2}} style={{display:'flex',textAlign:'center',alignItems:'center'}}>
                         <h1 style={{color:'white'}}>Projects</h1>

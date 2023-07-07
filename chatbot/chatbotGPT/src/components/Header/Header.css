@@ -5,16 +5,26 @@
     justify-content: center;
     align-items: baseline;
     padding: 0.2em;
-    margin-bottom: 2em;
     background-color: rgb(49, 45, 45);
     color: #ffffff;
     border-radius: 5em;
   }
 
+  .active-link {
+    color: white !important;
+    border-color: #ffffff !important;
+}
+
   .backdropFilter{
     backdrop-filter: blur(100px);
     color: #ffffff;
-    
   }
+
+  .nav-item > .active-link {
+    background-color:#ffffff !important;
+}
+
+
+
 
 

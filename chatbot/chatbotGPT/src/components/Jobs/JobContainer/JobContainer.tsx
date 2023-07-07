@@ -33,18 +33,17 @@ function JobContainer(){
     const [jobs, setJob] = useState(defaultVal);
 
   return (
-    <Container id='experience' style={{height:'20rem',justifyItems:'center',marginTop:'5rem',marginBottom:'5rem',}} >
-        <Container style={{display:'flex',paddingBottom:'2.5rem'}}>
-                    <Col sm={{span:7,offset:2}} style={{display:'flex',textAlign:'center',alignItems:'center'}}>
-                        <h1 style={{color:'white'}}>Experience</h1>
-                        <hr style={{color:'white', width:'inherit',marginLeft:'3rem'}}/>
-                    </Col>
-                </Container>
+    <Container id='experience' style={{height:'75vh',justifyItems:'center',alignItems:'center',display:'flex',}} >
         
         <TabContainer defaultActiveKey="0">
             
-            <Row xs={12} sm={12} md={8} style={{maxWidth:'100%',justifyContent:'center',height:'100%',overflow:'auto'}}>
-                
+            <Row xs={12} sm={12} md={8} style={{maxWidth:'100%',justifyContent:'center',overflow:'auto'}}>
+                <Col sm={{span:7,offset:2}} style={{display:'flex',textAlign:'center',alignItems:'center'}}>
+                            <h1 style={{color:'white'}}>Experience</h1>
+                            <hr style={{color:'white', width:'inherit',marginLeft:'3rem'}}/>
+                </Col>
+                <Col sm={3}>
+                </Col>
                 
                 <Col sm={{ span: 2, offset: 0 }} style={{}}>
                     <Nav className="flex-md-column" style={{alignItems:"start"}}>
