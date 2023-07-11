@@ -8,7 +8,7 @@ import { Button, Card, Container } from 'react-bootstrap'
 const ProjectCard = (project: any) => {
   return (
     <Container>
-        <Card style={{padding:'0rem'}}>
+        <Card onClick={() => console.log("MODAL CLICK")} style={{padding:'0rem',cursor: "pointer" }}>
             <Card.Img src="https://via.placeholder.com/150x75" />
 
             <Card.Body>
