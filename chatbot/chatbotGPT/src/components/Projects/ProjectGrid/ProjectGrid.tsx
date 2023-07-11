@@ -1,6 +1,6 @@
 import React from 'react'
 import './ProjectGrid.css'
-import { Button, Card, Col, Container, Row } from 'react-bootstrap'
+import { Button, Card, Col, Container, Modal, Row } from 'react-bootstrap'
 import ProjectCard from '../ProjectCard/ProjectCard'
 
 const projectData = [
@@ -24,6 +24,35 @@ const projectData = [
 ]
 
 
+function MyVerticallyCenteredModal(props:any) {
+    return (
+      <Modal
+        {...props}
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Modal.Header closeButton>
+          <Modal.Title id="contained-modal-title-vcenter">
+            Modal heading
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <h4>Centered Modal</h4>
+          <p>
+            Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
+            dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
+            consectetur ac, vestibulum at eros.
+          </p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button onClick={props.onHide}>Close</Button>
+        </Modal.Footer>
+      </Modal>
+    );
+  }
+
+
 // const ProjectCard = (props) =>  {
 function ProjectGrid(){
   return (
@@ -35,7 +64,7 @@ function ProjectGrid(){
             </Col>
         {projectData.map((projectData, k) => (
                     <Col key={k} xs={12} md={6} lg={4} style={{height:'100%',paddingTop:'1rem',paddingBottom:'1rem'}}>
-                        <ProjectCard {...projectData} />
+                        <ProjectCard onClick={() => setModalShow(true)} {...projectData} />
                     </Col>
         ))}
         </Row>
