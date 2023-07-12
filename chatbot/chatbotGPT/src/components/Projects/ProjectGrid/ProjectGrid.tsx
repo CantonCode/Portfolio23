@@ -5,20 +5,20 @@ import ProjectCard from '../ProjectCard/ProjectCard'
 
 const projectData = [
     {
-        "name": "Project 1",
-        "image": "https://via.placeholder.com/150x75"
+        "name": "Surfboard Rental App",
+        "image": "public/projects/SurfRental.png"
     },
     {
-        "name": "Project 2",
-        "image": "https://via.placeholder.com/150x75"
+        "name": "Elderly Dating Site",
+        "image": "public/projects/DatingSite.png"
     },
     {
-        "name": "Project 3",
-        "image": "https://via.placeholder.com/150x75"
+        "name": "Covid 19 - Data Visualization",
+        "image": "public/projects/Covid19.jpg"
     },
     {
-        "name": "Project 4",
-        "image": "https://via.placeholder.com/150x75"
+        "name": "LocalBids - MVP",
+        "image": "public/projects/3VA.png"
     },
 
 ]
@@ -28,7 +28,7 @@ const projectData = [
 // const ProjectCard = (props) =>  {
 function ProjectGrid(){
   return (
-    <Container id='projects' style={{height:'75vh',alignItems:'center',display:'flex'}}>
+    <Container id='projects' style={{height:'75vh',alignItems:'center',display:'flex',justifyContent:'center'}}>
         <Row>
             <Col sm={{span:7,offset:2}} style={{display:'flex',textAlign:'center',alignItems:'center'}}>
                             <h1 style={{color:'white'}}>Projects</h1>
