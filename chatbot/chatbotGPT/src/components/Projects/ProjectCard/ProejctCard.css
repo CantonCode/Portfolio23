@@ -1,8 +1,32 @@
 .card:hover {
     transform: scale(1.05);
-    
   }
 
   .card{
     transition:all .4s ease-in-out;
+  }
+
+  .overlay{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    visibility: none;
+    transition: .5s ease;
+    background-color: #393839;
+  }
+
+  .card:hover .overlay{
+    opacity: 1;
+  }
+
+  .overlay-icon{
+    display:flex;
+    border: 1px solid white;
+    border-radius: 10rem;
+    padding: 1rem;
   }
