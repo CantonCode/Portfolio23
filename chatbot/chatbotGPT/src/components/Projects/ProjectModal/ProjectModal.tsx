@@ -1,7 +1,7 @@
 import React from 'react'
 import { Badge, Button, Card, Col, Container, FloatingLabel, Modal, Row, Stack } from 'react-bootstrap'
 
-import { Reactjs,Node, } from 'grommet-icons'
+import { Reactjs,Node, Github, } from 'grommet-icons'
 
 // const ProjectCard = (props) =>  {
 const ProjectModal = (project: any) => {
@@ -39,6 +39,10 @@ const ProjectModal = (project: any) => {
                                     ))}
                                 </Stack>
                         </Modal.Footer>
+                    </Col>
+
+                    <Col sm={{span:12,offset:0 }} style={{alignItems:'center',display:'flex',justifyContent:'center'}}>
+                        <a href={project.github} target='_blank' style={{padding:'1rem'}}><Github size='large' /></a>
                     </Col>
                 </Row>
 
