@@ -6,19 +6,27 @@ import ProjectCard from '../ProjectCard/ProjectCard'
 const projectData = [
     {
         "name": "Surfboard Rental App",
-        "image": "public/projects/SurfRental.png"
+        "image": "public/projects/SurfRental.png",
+        "description":"This app was created to provide a central place for the UL Surf Club ( http://www.ulsurf.com/ ) gear rental system. Currently this app provides a gear rental functionality along with an in app messaging system for all surf club related items. This app can easily be expanded upon to provide a blog for all related surf club events and activities. This app also has the potential to be modified and not only cater for the surf club but also many other clubs among the university e.g. kayak club where large gear inventories also come into play.I was the Team Leader for this project. I helped to break down the what exactly we wanted and the apps functionality. I then ensured that each member knew how their assigned feature was to be impleneted and helped when they had questions and issues. I also took responsibility of the user authentication and database initlization along with creating an in-app messaging service.",
+        "technologies": ["React","Firebase","Bootstrap","Node.js","MongoDB","Express","Heroku"]
     },
     {
         "name": "Elderly Dating Site",
-        "image": "public/projects/DatingSite.png"
+        "image": "public/projects/DatingSite.png",
+        "description":"For this project we were split into groups of 4. We were given the task of designing a full stack dating website. We decieded to create a site that was for people over the age of 60.I was in charge of connecting the database along with configuring user authenication using Google Firebase. I also helped debug some issues that the other members were having.The user can register an account on the dating website and view other users that meet their criteria (age, gender, county and interests) or else users with similar interests are automatically suggested for them. If they see a user they like, they can invite them to connect with them and then once the connection is made the messaging featue becomes available.",
+        "technologies": ["React","Firebase","Bootstrap","Node.js"]
     },
     {
         "name": "Covid 19 - Data Visualization",
-        "image": "public/projects/Covid19.jpg"
+        "image": "public/projects/Covid19.jpg",
+        "description":"create place holder text for description",
+        "technologies": ["React","Firebase","Bootstrap","Node.js"]
     },
     {
         "name": "LocalBids - MVP",
-        "image": "public/projects/3VA.png"
+        "image": "public/projects/3VA.png",
+        "technologies": ["React","Firebase","Bootstrap","Node.js"]
+        
     },
 
 ]

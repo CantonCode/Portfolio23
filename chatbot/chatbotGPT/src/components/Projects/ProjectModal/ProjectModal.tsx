@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Card, Container, Modal } from 'react-bootstrap'
+import { Badge, Button, Card, Col, Container, FloatingLabel, Modal, Row, Stack } from 'react-bootstrap'
 
 
 
@@ -7,30 +7,38 @@ import { Button, Card, Container, Modal } from 'react-bootstrap'
 const ProjectModal = (project: any) => {
   return (
     <Container>
-        <Modal
-            {...project}
-            size="lg"
-            aria-labelledby="contained-modal-title-vcenter"
-            centered
-        >
+                <Modal
+                {...project}
+                size="lg"
+                aria-labelledby="contained-modal-title-vcenter"
+                centered
+                style={{textAlign:'center',justifyContent:'center',alignItems:'center'}}
+                >
+                <Row style={{justifyContent:'center'}}>
+                    <Col sm={8}>
+                    <Modal.Header style={{borderBottom:'0px'}} closeButton></Modal.Header>
+                    <Modal.Body>
+                    <h1>{project.name}</h1>
+                    <hr></hr>
 
-        <Modal.Header closeButton>
-            <Modal.Title id="contained-modal-title-vcenter">
-                {project.name}
-            </Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-            <h4>Centered Modal</h4>
-            <p>
-                Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-                dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-                consectetur ac, vestibulum at eros.
-            </p>
-            </Modal.Body>
-            <Modal.Footer>
-          
-            </Modal.Footer>
-        </Modal>
+                    <p style={{margin:'2rem'}}>
+                        {project.description}
+                    </p>
+                    </Modal.Body>
+                    <Modal.Footer style={{justifyContent:'center',display:'flex'}}>
+                            <Stack direction="horizontal" gap={2}>
+                                {project.technologies.map((tech: any) => (
+                                    <Badge pill bg="dark" text="white" style={{padding:'1rem'}}>
+                                        {tech}
+                                    </Badge>
+                                ))}
+                            </Stack>
+                    </Modal.Footer>
+                    </Col>
+                </Row>
+
+                    
+                </Modal>
     </Container> 
   )
 }
