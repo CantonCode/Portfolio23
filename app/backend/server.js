@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
-app.use(cors({credentials: true, origin: ['http://localhost:4200','https://mvp.localbids.app','https://cantoncode.github.io']}));
+app.use(cors({credentials: true, origin: ['http://localhost:5000','https://mvp.localbids.app','https://cantoncode.github.io']}));
 
 
 const jobRoutes = require('./routes/api/jobs');
@@ -37,8 +37,9 @@ mongoose.connect(MONGO_URI,{
     .then(() => console.log('MongoDB Connected'))
     .catch(err=> console.log(err));
 
-app.use('/api/jobs',jobRoutes);
-app.use('/accounts', require('./routes/account/account.controller'));
+    app.use('/projects', require('./routes/project/project.controller'));
+// app.use('/api/jobs',jobRoutes);
+// app.use('/accounts', require('./routes/account/account.controller'));
 app.use(errorHandler);
 
 app.listen(PORT,() => console.log('ruinning on port ' + PORT));

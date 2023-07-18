@@ -16,7 +16,7 @@ const ProjectSchema = new Schema({
         type:String,
         required:true,
     },
-    technoligies:{
+    technologies:{
         type:Array,
         required:true,
     },
@@ -26,11 +26,11 @@ const ProjectSchema = new Schema({
     }
 });
 
-ProjectSchema.pre(/^find/,function(next){
-    this.populate({
-        path:'name',
-      });
-    next();
-    });
+// ProjectSchema.pre(/^find/,function(next){
+//     this.populate({
+//         path:'name',
+//       });
+//     next();
+//     });
 
-module.exports = mongoose.model('Projects', ProjectSchema)
+module.exports = mongoose.model('Project', ProjectSchema)
