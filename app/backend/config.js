@@ -1,4 +1,4 @@
 module.exports ={
-    MONGO_URI: 'mongodb+srv://ccanton:LocalBidsDB123@lb.atarirp.mongodb.net/localbids'
+    MONGO_URI: 'mongodb+srv://conorstreete:tj7EGcuAy2z2rFg1@cluster0.as5xkk1.mongodb.net/'
 }
 //test
