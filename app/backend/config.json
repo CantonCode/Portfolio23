@@ -1,0 +1,13 @@
+{
+    "connectionString": "mongodb://localhost/node-mongo-signup-verification-api",
+    "secret": "LocalBidsFTW",
+    "emailFrom": "accounts@localbids.app",
+    "smtpOptions": {
+        "host": "localbids.app",
+        "port": 465,
+        "auth": {
+            "user": "accounts@localbids.app",
+            "pass": "LocalBids4!"
+        }
+    }
+}
