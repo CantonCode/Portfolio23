@@ -2,6 +2,7 @@ import React from 'react'
 import './ProjectGrid.css'
 import { Button, Card, Col, Container, Modal, Row } from 'react-bootstrap'
 import ProjectCard from '../ProjectCard/ProjectCard'
+import { useState, useEffect } from 'react'
 
 const projectData = [
     {
@@ -34,9 +35,30 @@ const projectData = [
 ]
 
 
+  // Note: the empty deps array [] means
+  // this useEffect will run once
+  // similar to componentDidMount()
+
+
 
 // const ProjectCard = (props) =>  {
 function ProjectGrid(){
+    useEffect(() => {
+        fetch("localhost:5000/projects/getAll")
+          .then(res => res.json())
+          .then(
+            (result) => {
+              console.log(result);
+            },
+            // Note: it's important to handle errors here
+            // instead of a catch() block so that we don't swallow
+            // exceptions from actual bugs in components.
+            (error) => {
+             console.log(error);
+            }
+          )  
+      }, [])
+
   return (
     <Container id='projects' style={{height:'75vh',alignItems:'center',display:'flex',justifyContent:'center'}}>
         <Row>
