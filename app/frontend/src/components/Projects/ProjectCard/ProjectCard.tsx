@@ -13,7 +13,7 @@ const ProjectCard = (project: any) => {
   return (
     <Container >
         <Card onClick={() => setModalShow(true)} style={{padding:'0rem',cursor: "pointer",height:'25vh',border:'2px solid grey',alignContent:'center',display:'flex'}}>
-            <Card.Img src={project.image} style={{height:'80%',backgroundSize:'none'}}/>
+            <Card.Img src={project.thumbnail} style={{height:'80%',backgroundSize:'none'}}/>
 
             <Card.Body style={{borderTop:'2px solid black'}}>
                 <Card.Title>{project.name}</Card.Title>
