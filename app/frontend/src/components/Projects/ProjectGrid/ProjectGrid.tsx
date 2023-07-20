@@ -35,15 +35,9 @@ const projectData = [
 
 ]
 
-
-  // Note: the empty deps array [] means
-  // this useEffect will run once
-  // similar to componentDidMount()
 const url = 'http://localhost:5000/projects/';
 
 
-
-// const ProjectCard = (props) =>  {
 function ProjectGrid(){
     const [projects, setProjects] = useState<Project[]>([]);
 
