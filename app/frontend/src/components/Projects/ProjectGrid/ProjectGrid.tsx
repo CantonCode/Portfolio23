@@ -3,6 +3,7 @@ import './ProjectGrid.css'
 import { Button, Card, Col, Container, Modal, Row } from 'react-bootstrap'
 import ProjectCard from '../ProjectCard/ProjectCard'
 import { useState, useEffect } from 'react'
+import { Project } from '../../../models/project.model'
 
 const projectData = [
     {
@@ -38,39 +39,42 @@ const projectData = [
   // Note: the empty deps array [] means
   // this useEffect will run once
   // similar to componentDidMount()
+const url = 'http://localhost:5000/projects/';
 
 
 
 // const ProjectCard = (props) =>  {
 function ProjectGrid(){
+    const [projects, setProjects] = useState<Project[]>([]);
+
+    const fetchUserData = () => {
+        fetch(url+'getAll')
+        .then(response => {
+            return response.json()
+        })
+        .then(data => {
+            setProjects(data)
+        })
+    }
+
     useEffect(() => {
-        fetch("localhost:5000/projects/getAll")
-          .then(res => res.json())
-          .then(
-            (result) => {
-              console.log(result);
-            },
-            // Note: it's important to handle errors here
-            // instead of a catch() block so that we don't swallow
-            // exceptions from actual bugs in components.
-            (error) => {
-             console.log(error);
-            }
-          )  
-      }, [])
+        fetchUserData()
+    }, [])
 
   return (
     <Container id='projects' style={{height:'75vh',alignItems:'center',display:'flex',justifyContent:'center'}}>
+
         <Row>
+            
             <Col sm={{span:7,offset:2}} style={{display:'flex',textAlign:'center',alignItems:'center'}}>
                             <h1 style={{color:'white'}}>Projects</h1>
                             <hr style={{color:'white', width:'inherit',marginLeft:'3rem'}}/>
             </Col>
-        {projectData.map((projectData, k) => (
+
+        {projects.map((proj, k) => (
                     <Col key={k} xs={12} md={6} lg={4} style={{height:'100%',paddingTop:'1rem',paddingBottom:'1rem'}}>
-                        <ProjectCard {...projectData} />
-                    </Col>
-                    
+                        <ProjectCard {...proj}/>
+                    </Col>                    
         ))}
         </Row>
     </Container> 

@@ -15,7 +15,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
-app.use(cors({credentials: true, origin: ['http://localhost:5000','https://mvp.localbids.app','https://cantoncode.github.io']}));
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    next();
+  });
+
+app.use(cors({credentials: true, origin: ['https://localhost:5173','https://mvp.localbids.app','https://cantoncode.github.io']}));
 
 
 const jobRoutes = require('./routes/api/jobs');
