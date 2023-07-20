@@ -4,9 +4,10 @@ module.exports = {
     Account: require('../models/account/account.model'),
     RefreshToken: require('../models/account/refresh-token.model'),
     Project: require('../models/project/project'),
+    Job: require('../models/job/job'),
     isValidId,
-    Jobs: require('../models/jobs'),
-    Bid: require('../models/bid'),
+    // Jobs: require('../models/jobs'),
+    // Bid: require('../models/bid'),
     
 };
 

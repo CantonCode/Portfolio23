@@ -43,6 +43,7 @@ mongoose.connect(MONGO_URI,{
     .catch(err=> console.log(err));
 
     app.use('/projects', require('./routes/project/project.controller'));
+    app.use('/jobs', require('./routes/job/job.controller'));
 // app.use('/api/jobs',jobRoutes);
 // app.use('/accounts', require('./routes/account/account.controller'));
 app.use(errorHandler);
