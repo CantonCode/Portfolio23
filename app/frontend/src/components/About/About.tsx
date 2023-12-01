@@ -7,7 +7,7 @@ import { Col, Container, Image, Row } from 'react-bootstrap'
 
 function About() {
   return (
-    <Container id='about' className='' style={{color:'white',height:'100vh',display:'flex',alignItems:'center'}} >
+    <Container id='about' className='' style={{color:'white',height:'100%',display:'flex',alignItems:'center'}} >
 
       <Row style={{}}>
 

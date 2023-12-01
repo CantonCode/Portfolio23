@@ -7,7 +7,7 @@ import { User, List } from 'grommet-icons'
 
 function Intro() {
   return (
-    <Container id='home' className='' style={{height:'95vh',color:'white'}} >
+    <Container id='home' className='' style={{height:'100%',color:'white'}} >
       <Row style={{height:'100%'}}>
         <Col style={{height:'100%',alignItems:'center',display:'flex',flexDirection:'column',justifyContent:'center'}}>
           <Image src="\public\picofme.png" fluid></Image>
