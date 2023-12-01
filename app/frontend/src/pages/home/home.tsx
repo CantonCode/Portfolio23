@@ -11,7 +11,9 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { Mousewheel, Pagination, EffectCube } from "swiper/modules";
+import 'swiper/css/effect-fade';
+
+import { Mousewheel, Pagination, EffectFade  } from "swiper/modules";
 
 
 
@@ -32,16 +34,17 @@ function Home() {
       slidesPerView={1}
       mousewheel={{
         invert: false,
-        sensitivity: 1,
+        sensitivity: 100,
         releaseOnEdges: true,
       }}
-      modules={[Mousewheel,Pagination]}
+      modules={[Mousewheel,Pagination, EffectFade]}
       pagination={{
         clickable: true,
       }}
       onSlideChange={() => console.log('slide change')}
       onSwiper={(swiper) => console.log(swiper)}
       speed={700}
+      className="mySwiper"
     >
       <SwiperSlide><Intro/></SwiperSlide>
       <SwiperSlide><About/></SwiperSlide>

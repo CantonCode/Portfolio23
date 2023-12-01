@@ -33,7 +33,7 @@ function JobContainer(){
     const [jobs, setJob] = useState(defaultVal);
 
   return (
-    <Container id='experience' style={{height:'100%',justifyItems:'center',alignItems:'center',display:'flex',}} >
+    <Container id='experience' style={{height:'100%',justifyItems:'center',alignItems:'center',display:'flex',backgroundColor:'#10101a'}} >
         
         <TabContainer defaultActiveKey="0">
             
