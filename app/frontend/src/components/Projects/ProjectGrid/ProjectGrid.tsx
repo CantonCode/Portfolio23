@@ -56,7 +56,7 @@ function ProjectGrid(){
     }, [])
 
   return (
-    <Container id='projects' style={{height:'75vh',alignItems:'center',display:'flex',justifyContent:'center'}}>
+    <Container id='projects' style={{height:'100vh',alignItems:'center',display:'flex',justifyContent:'center'}}>
 
         <Row>
             
