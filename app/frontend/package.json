@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@fullpage/react-fullpage": "^0.1.40",
+    "@splinetool/react-spline": "^2.2.6",
+    "@splinetool/runtime": "^0.9.516",
     "bootstrap": "^5.3.0",
     "grommet-icons": "^4.11.0",
     "react": "^18.2.0",

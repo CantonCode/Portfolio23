@@ -2,6 +2,7 @@ import React from 'react'
 import './Intro.css'
 import { Col, Container, Image, Row } from 'react-bootstrap'
 import { User, List } from 'grommet-icons'
+import Spline from '@splinetool/react-spline';
 
 
 
@@ -10,7 +11,9 @@ function Intro() {
     <Container id='home' className='' style={{height:'100%',color:'white',backgroundColor:'#10101a'}} >
       <Row style={{height:'100%'}}>
         <Col style={{height:'100%',alignItems:'center',display:'flex',flexDirection:'column',justifyContent:'center'}}>
-          <Image src="\public\picofme.png" fluid></Image>
+          {/* <Image src="\public\picofme.png" fluid></Image> */}
+          <Spline style={{height:'100%',alignItems:'center',display:'flex',flexDirection:'column',justifyContent:'center'}}
+          scene="https://prod.spline.design/YwOKaIGhCzYIxglN/scene.splinecode" />
         </Col>
         <Col style={{height:'100%',alignItems:'center',display:'flex',flexDirection:'column',justifyContent:'center'}}>
           <div style={{fontSize:"5rem", width:'100%'}}>
