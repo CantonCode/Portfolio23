@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const { MONGO_URI } = require('./config');
+require("dotenv").config();
  
 const app = express();
 
@@ -25,7 +26,7 @@ app.use(cors({credentials: true, origin: ['https://localhost:5173','https://mvp.
 
 const jobRoutes = require('./routes/api/jobs');
 
-const PORT = process.env.PORT || 5000
+const PORT = process.env.NODE_DOCKER_PORT || 8080
 
 //BodyParser Middleware
 app.use(express.json())
