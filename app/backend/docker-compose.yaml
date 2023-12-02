@@ -2,9 +2,9 @@ version: '3.8'
 
 services:
   app:
-    build: ./backend
+    build: ./
     restart: unless-stopped
-    env_file: ./.env
+    env_file: .env
     ports:
       - $NODE_LOCAL_PORT:$NODE_DOCKER_PORT
     environment:
@@ -12,5 +12,3 @@ services:
       - DB_PASSWORD=$MONGODB_PASSWORD
     stdin_open: true
     tty: true
-
-volumes:
