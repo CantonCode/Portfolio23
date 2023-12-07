@@ -2,10 +2,9 @@ name: portfolio_node_app
 
 on:
   push:
-    branches:
-      - main
+    branches: [ "main" ]
     paths:
-      - app/backend
+      - ./app/backend
 
 jobs:
   build:
