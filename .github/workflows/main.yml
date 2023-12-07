@@ -30,4 +30,4 @@ jobs:
                   context: .
                   file: ./app/backend/Dockerfile
                   push: true
-                  tags: portfolio:latest
+                  tags: conorstreete/portfolio:latest
