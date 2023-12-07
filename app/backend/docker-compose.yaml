@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  app:
+    build: ./
+    restart: unless-stopped
+    env_file: .env
+    ports:
+      - $NODE_LOCAL_PORT:$NODE_DOCKER_PORT
+    environment:
+      - DB_USER=$MONGODB_USER
+      - DB_PASSWORD=$MONGODB_PASSWORD
+    stdin_open: true
+    tty: true
