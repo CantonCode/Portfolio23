@@ -3,7 +3,7 @@ name: portfolio_node_app
 on:
   push:
     branches:
-      - "main"
+      - main
     paths:
       - app/backend
 
