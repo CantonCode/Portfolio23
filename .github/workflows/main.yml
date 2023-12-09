@@ -7,86 +7,59 @@ on:
 
 jobs:
   Deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest #run this workflow on ubuntu instance
     permissions: #make sure we add permission to read and write package
       contents: read
       packages: write
     steps:
-      -   name: Checkout
-          uses: actions/checkout@v3
-      - # login to Docker Hub using the secrets provided
-          name: Login to Docker Hub
-          uses: docker/login-action@v2
+      - name: Checkout Code
+          uses: actions/checkout@v1 #checkouts your repo, so this workflow can access it
+      - name: Log in to GHCR
+          env:
+              REGISTRY: ghcr.io #create env called REGISTRY
+          uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
           with:
-            username: ${{ secrets.DOCKERHUB_USERNAME }}
-            password: ${{ secrets.DOCKERHUB_TOkEN }}
-      - # Login to GHCR
+              registry: ${{ env.REGISTRY }} #parse REGISTRY env value to here. Make sure it is correctly stating ghcr.io
+              username: ${{ github.actor }} #this will be our github account
+              password: ${{ secrets.CR_PAT }} #parse the value of repository secret called CR_PAT that we have created earlier
+      - name: Login to GCR
+          env:
+            PROJECT_ID: service-project-ardhan-1 #create env called PROJECT_ID consisted of our actual GCP Project ID
+          uses: google-github-actions/setup-gcloud@v0.3.0 #checkouts GCR repo, so this workflow can access it
+          with:
+            service_account_key: ${{ secrets.SERVICE_ACCOUNT_KEY }} #parse the value of repository secret called SERVICE_ACCOUNT_KEY that we have created earlier
+            project_id: ${{ env.PROJECT_ID }} #parse the value of env called PROJECT_ID
+            export_default_credentials: true
+      - name: Build Docker Image
+          env:
+            IMAGE_NAME: linux_tweet_app #create env called IMAGE_NAME consisted of actual name of Docker Image after we build
+            PROJECT_ID: service-project-ardhan-1
+          run: docker build -t $IMAGE_NAME:latest . #build the docker image  
+      - name: Configure Docker Client
+          run:  |-
+            gcloud auth configure-docker --quiet #authenticate to gcr
+        
+      - name: Push Docker Image to Container Registry GCR
+          env: 
+            IMAGE_NAME: linux_tweet_app
+            PROJECT_ID: service-project-ardhan-1
+          #tag docker image to gcr image format then push to gcr
+          run: |-
+            docker tag $IMAGE_NAME:latest gcr.io/$PROJECT_ID/$IMAGE_NAME:latest 
+            docker push gcr.io/$PROJECT_ID/$IMAGE_NAME:latest 
+          
+      - name: Extract metadata (tags, labels) for Docker GHCR
           env:
             REGISTRY: ghcr.io
-          uses: docker/login-action@v1
+            IMAGE_NAME: ${{ github.repository }}
+          id: meta
+          uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
           with:
-            registry: ${{ env.REGISTRY }}
-            username: ${{ github.actor }}
-            password: ${{ secrets.CR_PAT }}
-      - #Login to GCR
-          env:
-            PROJECT_ID: portfolio-23
-            uses: gooogle-github-actions/setup-gcloud@master
-            with:
-              version: 'latest'
-              service_account_key: ${{ secrets.SERVICE_ACCOUNT_KEY }}
-              project_id: ${{ env.PROJECT_ID }}
-              export_default_credentials: true
-      - # GCR: Build Docker Image
-            name: Build Docker Image
-            env:
-              IMAGE_NAME: portfolio
-              PROJECT_ID: portfolio-23
-              IMAGE_TAG: latest
-            run: docker build -t $IMAGE_NAME .
-      - #GCR
-            name: Configure Docker Client
-            run: |-
-              gcloud auth configure-docker
-
-            name: Push Docker Image to GCR
-            env:
-              IMAGE_NAME: portfolio
-              PROJECT_ID: portfolio-23
-              IMAGE_TAG: latest
-            run: |-
-              docker tag $IMAGE_NAME:latest gcr.io/$PROJECT_ID/$IMAGE_NAME:$IMAGE_TAG
-              docker push gcr.io/$PROJECT_ID/$IMAGE_NAME:$IMAGE_TAG
-         #tag docker image to gcr image format then push to gcr
-            run: |-
-              docker tag $IMAGE_NAME:latest gcr.io/$PROJECT_ID/$IMAGE_NAME:latest 
-              docker push gcr.io/$PROJECT_ID/$IMAGE_NAME:latest 
-              
-          - name: Extract metadata (tags, labels) for Docker GHCR
-            env:
-              REGISTRY: ghcr.io
-              IMAGE_NAME: ${{ github.repository }}
-            id: meta
-            uses: docker/metadata-action@v3
-            with:
-              images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }} #create ghcr image format within as id called meta
-          #GHCR: Build the container image and push it to GHCR
-          - name: Build and push Docker image
-              uses: docker/build-push-action@v4 #push docker image to ghcr
-              with:
-                context: .
-                push: true
-                tags: ${{ steps.meta.outputs.tags }}
-                labels: ${{ steps.meta.outputs.labels }}
-        
-        - # DOCKER HUB:create a build kit builder instance
-            name: Set up Docker Buildx
-            uses: docker/setup-buildx-action@v2
-        - # DOCKER HUB:build the container image and push it to Docker \
-            name: Build and push to Docker Hub
-            uses: docker/build-push-action@v4
-            with:
-              context: .
-              file: ./app/backend/Dockerfile
-              push: true
-              tags: conorstreete/portfolio:latest
+            images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }} #create ghcr image format within as id called meta
+      - name: Build and push Docker image
+          uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc #push docker image to ghcr
+          with:
+            context: .
+            push: true
+            tags: ${{ steps.meta.outputs.tags }}
+            labels: ${{ steps.meta.outputs.labels }}
