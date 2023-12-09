@@ -23,17 +23,16 @@ jobs:
         - name: Login to GCR #login to GCR
           env:
             PROJECT_ID: portfolio-23 #create env called PROJECT_ID consisted of our actual GCP Project ID
-          uses: google-github-actions/auth@v1 #checkouts GCR repo, so this workflow can access it
+          uses: google-github-actions/auth@v2 #checkouts GCR repo, so this workflow can access it
           with:
             credentials_json: ${{ secrets.SERVICE_ACCOUNT_KEY }} #parse the value of repository secret called SERVICE_ACCOUNT_KEY that we have created earlier
             project_id: ${{ env.PROJECT_ID }} #parse the value of env called PROJECT_ID
-            export_default_credentials: true
         - name: 'Set up Cloud SDK'
           uses: 'google-github-actions/setup-gcloud@v1'
         - name: Build Docker Image
           env:
-            IMAGE_NAME: linux_tweet_app #create env called IMAGE_NAME consisted of actual name of Docker Image after we build
-            PROJECT_ID: service-project-ardhan-1
+            IMAGE_NAME: portfolio #create env called IMAGE_NAME consisted of actual name of Docker Image after we build
+            PROJECT_ID: portfolio-23 #create env called PROJECT_ID consisted of our actual GCP Project ID
           run: docker build -t $IMAGE_NAME:latest . #build the docker image  
         - name: Configure Docker Client
           run:  |-
@@ -41,8 +40,8 @@ jobs:
             
         - name: Push Docker Image to Container Registry GCR
           env: 
-            IMAGE_NAME: linux_tweet_app
-            PROJECT_ID: service-project-ardhan-1
+            IMAGE_NAME: portfolio #create env called IMAGE_NAME consisted of actual name of Docker Image after we build
+            PROJECT_ID: portfolio-23 #create env called PROJECT_ID consisted of our actual GCP Project ID
             #tag docker image to gcr image format then push to gcr
           run: |-
             docker tag $IMAGE_NAME:latest gcr.io/$PROJECT_ID/$IMAGE_NAME:latest 
@@ -53,11 +52,11 @@ jobs:
             REGISTRY: ghcr.io
             IMAGE_NAME: ${{ github.repository }}
           id: meta
-          uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
+          uses: docker/metadata-action@v3
           with:
             images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }} #create ghcr image format within as id called meta
         - name: Build and push Docker image
-          uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc #push docker image to ghcr
+          uses: docker/build-push-action@5 #push docker image to ghcr
           with:
             context: .
             push: true
