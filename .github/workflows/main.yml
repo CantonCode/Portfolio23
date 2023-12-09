@@ -3,10 +3,8 @@ name: portfolio_node_app
 on:
   push:
     branches: [ "main" ]
-    
-
 jobs:
-    Deploy:
+    deploy:
         runs-on: ubuntu-latest #run this workflow on ubuntu instance
         permissions: #make sure we add permission to read and write package
           contents: read
