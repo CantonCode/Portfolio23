@@ -40,6 +40,7 @@ jobs:
           with:
             image: ${{ env.PROJECT_ID }}/${{ env.IMAGE_NAME }} #create gcr image format within as id called meta
             registry: gcr.io
+            tags: v1
             dockerfile: app/backend/Dockerfile #specify the path of Dockerfile
             username: _json_key
             password: ${{ secrets.SERVICE_ACCOUNT_KEY }}       
