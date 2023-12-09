@@ -20,13 +20,21 @@ jobs:
               registry: ${{ env.REGISTRY }} #parse REGISTRY env value to here. Make sure it is correctly stating ghcr.io
               username: ${{ github.actor }} #this will be our github account
               password: ${{ secrets.CR_PAT }} #parse the value of repository secret called CR_PAT that we have created earlier
-        - name: Login to GCR #login to GCR
+        - name: authGCR #login to GCR
           env:
             PROJECT_ID: portfolio-23 #create env called PROJECT_ID consisted of our actual GCP Project ID
           uses: google-github-actions/auth@v2 #checkouts GCR repo, so this workflow can access it
           with:
+            token_format: access_token
+            service_account: portfolio-gh@precise-tube-406810.iam.gserviceaccount.com
             credentials_json: ${{ secrets.SERVICE_ACCOUNT_KEY }} #parse the value of repository secret called SERVICE_ACCOUNT_KEY that we have created earlier
-            project_id: ${{ env.PROJECT_ID }} #parse the value of env called PROJECT_ID
+            access_token_lifetime: 300s
+        - name: Login to Artifact Registry
+          uses: docker/login-action@v1
+          with:
+            registry: us-docker.pkg.dev
+            username: oauth2accesstoken
+            password: ${{ steps.authGCR.outputs.access_token }}
         - name: 'Set up Cloud SDK'
           uses: 'google-github-actions/setup-gcloud@v1'
         - name: Configure Docker Client
