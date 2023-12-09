@@ -56,7 +56,7 @@ jobs:
           with:
             images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }} #create ghcr image format within as id called meta
         - name: Build and push Docker image
-          uses: docker/build-push-action@4 #push docker image to ghcr
+          uses: docker/build-push-action@3 #push docker image to ghcr
           with:
             context: .
             push: true
