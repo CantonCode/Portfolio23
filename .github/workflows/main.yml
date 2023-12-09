@@ -33,7 +33,7 @@ jobs:
           env:
             IMAGE_NAME: portfolio #create env called IMAGE_NAME consisted of actual name of Docker Image after we build
             PROJECT_ID: portfolio-23 #create env called PROJECT_ID consisted of our actual GCP Project ID
-          run: docker build -t $IMAGE_NAME:latest app/backend/ #build the docker image  
+          run: docker build -t $IMAGE_NAME:latest ./app/backend/ #build the docker image  
         - name: Configure Docker Client
           run:  |-
             gcloud auth configure-docker --quiet #authenticate to gcr
