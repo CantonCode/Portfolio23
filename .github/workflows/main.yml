@@ -38,7 +38,7 @@ jobs:
             IMAGE_NAME: portfolio #create env called IMAGE_NAME consisted of actual name of Docker Image after we build
             PROJECT_ID: portfolio-23 #create env called PROJECT_ID consisted of our actual GCP Project ID
           with:
-            image: ${{ env.PROJECT_ID }}/${{ env.IMAGE_NAME }}:latest #create gcr image format within as id called meta
+            image: ${{ env.PROJECT_ID }}/${{ env.IMAGE_NAME }} #create gcr image format within as id called meta
             registry: gcr.io
             dockerfile: app/backend/Dockerfile #specify the path of Dockerfile
             username: _json_key
