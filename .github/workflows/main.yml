@@ -12,15 +12,15 @@ jobs:
       contents: read
       packages: write
     steps:
-        -   name: Checkout
-            uses: actions/checkout@v3
-        - # login to Docker Hub using the secrets provided
-            name: Login to Docker Hub
-            uses: docker/login-action@v2
-            with:
-              username: ${{ secrets.DOCKERHUB_USERNAME }}
-              password: ${{ secrets.DOCKERHUB_TOkEN }}
-        - # Login to GHCR
+      -   name: Checkout
+          uses: actions/checkout@v3
+      - # login to Docker Hub using the secrets provided
+          name: Login to Docker Hub
+          uses: docker/login-action@v2
+          with:
+            username: ${{ secrets.DOCKERHUB_USERNAME }}
+            password: ${{ secrets.DOCKERHUB_TOkEN }}
+      - # Login to GHCR
           env:
             REGISTRY: ghcr.io
           uses: docker/login-action@v1
@@ -28,7 +28,7 @@ jobs:
             registry: ${{ env.REGISTRY }}
             username: ${{ github.actor }}
             password: ${{ secrets.CR_PAT }}
-        - #Login to GCR
+      - #Login to GCR
           env:
             PROJECT_ID: portfolio-23
             uses: gooogle-github-actions/setup-gcloud@master
@@ -37,14 +37,14 @@ jobs:
               service_account_key: ${{ secrets.SERVICE_ACCOUNT_KEY }}
               project_id: ${{ env.PROJECT_ID }}
               export_default_credentials: true
-        - # GCR: Build Docker Image
+      - # GCR: Build Docker Image
             name: Build Docker Image
             env:
               IMAGE_NAME: portfolio
               PROJECT_ID: portfolio-23
               IMAGE_TAG: latest
             run: docker build -t $IMAGE_NAME .
-        - #GCR
+      - #GCR
             name: Configure Docker Client
             run: |-
               gcloud auth configure-docker
