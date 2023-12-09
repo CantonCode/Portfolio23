@@ -6,9 +6,11 @@ on:
     
 
 jobs:
-  build:
-    name: Build Docker Image
+  Deploy:
     runs-on: ubuntu-latest
+    permissions: #make sure we add permission to read and write package
+      contents: read
+      packages: write
     steps:
             - # checkout to the repository on the build machine
                 name: Checkout
