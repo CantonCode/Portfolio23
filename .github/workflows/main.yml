@@ -15,7 +15,7 @@ jobs:
         - name: Log in to GHCR
           env:
               REGISTRY: ghcr.io #create env called REGISTRY
-          uses: docker/login-action@latest #checkouts GHCR repo, so this workflow can access it
+          uses: docker/login-action@v1 #checkouts GHCR repo, so this workflow can access it
           with:
               registry: ${{ env.REGISTRY }} #parse REGISTRY env value to here. Make sure it is correctly stating ghcr.io
               username: ${{ github.actor }} #this will be our github account
