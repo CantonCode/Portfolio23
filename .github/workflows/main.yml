@@ -51,7 +51,7 @@ jobs:
             tags: v1
             dockerfile: app/backend/Dockerfile #specify the path of Dockerfile
             username: _json_key
-            password: ${{ secrets.SERVICE_ACCOUNT_KEY }}       
+            password: ${{ secrets.SERVICE_ACCOUNT_KEY }}     
           # env: 
           #   IMAGE_NAME: portfolio #create env called IMAGE_NAME consisted of actual name of Docker Image after we build
           #   PROJECT_ID: portfolio-23 #create env called PROJECT_ID consisted of our actual GCP Project ID
