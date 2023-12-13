@@ -35,7 +35,9 @@ const projectData = [
 
 ]
 
-const url = 'http://localhost:5000/projects/';
+// const url = 'http://localhost:5000/projects/';
+const url = 'https://portfolio23-ng6ml777dq-oa.a.run.app/projects/';
+
 
 
 function ProjectGrid(){

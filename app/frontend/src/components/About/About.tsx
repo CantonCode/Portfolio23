@@ -16,14 +16,14 @@ function About() {
                         <hr style={{color:'white', width:'inherit',marginLeft:'3rem'}}/>
                     </Col>
         <Col lg={{ span: 4, offset: 2 }}  style={{height:'100%',alignItems:'center',flexDirection:'column',justifyContent:'center',fontSize:'1.25rem', fontWeight:'300'}}>
-            <p>I am a student in the University of Limerick,Ireland who is due to graduate with a 2.1 degree in May 2021. I am looking for some experience in the software industry. I am looking for work in the West of Ireland or I am willing to relocate
-                        to a new location such as Barcelona or Lisbon.
-            </p>
+            <p>I am a software developer with a wide variety of experience from essential corporate applications to complicated backend and data visualization solutions. I have a 1.1 bachelor's degree in Computer Systems from the University of Limerick, Ireland.
+               Currently working on a business endeavor, 3VA Studios, with a business associate but also looking for a permanent job to develop my skills in cloud computing.
+              </p>
         </Col>
         <Col lg={{ span: 4, offset: 0 }} style={{height:'100%',alignItems:'center',flexDirection:'column',justifyContent:'center',fontSize:'1.25rem', fontWeight:'300'}}>
-          <p>I am a student in the University of Limerick,Ireland who is due to graduate with a 2.1 degree in May 2021. I am looking for some experience in the software industry. I am looking for work in the West of Ireland or I am willing to relocate
-                        to a new location such as Barcelona or Lisbon.
-            </p>
+          <p>I am looking to specialize in backend solutions and I am currently upskilling in this area. The main technologies I am currently working with are React, NodeJS, Express, and MongoDB.
+              Recently I have begun to work on the migration of applications to the cloud with the use of Google Cloud and AWS. I would like to pursue a career in this area and would be grateful for any opportunity
+           </p>
         </Col> 
       </Row>
     </Container>

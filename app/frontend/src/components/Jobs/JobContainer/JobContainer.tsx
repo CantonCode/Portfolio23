@@ -7,24 +7,36 @@ import { Centos } from 'grommet-icons';
 
 const defaultVal = [
     {
+        id: generateId(),
+        company: "3VA Studios",
+        role: "Full-Stack Software Developer",
+        date: "August 2023 - Current",
+        tasks: [ "Webflow API Integration",
+          "Creating MVP products for clients and bringing their idea to life from paper to the web",
+          "React",
+          "NodeJS and MongoDB database implementations",
+            "Google Cloud, Git workflows, Zapier and CI/CD integrations"],
+      },
+    {
       id: generateId(),
       company: "JRI America",
       role: "Junior Software Engineer",
       date: "May 2022 - August 2023",
-      tasks: [ "Developed a web application using React, Redux, and Typescript to display data from a REST API",
-        "Created a REST API using Node.js and Express to serve data from a MySQL database",
-        "Implemented a CI/CD pipeline using Jenkins to automate the deployment of the web application"],
-
+    tasks: [ "Responsible for contribiuting to the software development life cycle(SDLC) for various software projects.Primary focus on development, testing, deployment of critical middleware interfaces. Providing secure and reliable communication between banking applications.",
+        "Microsoft Power Automate, IBM Tools, Tivoli Workload Scheduler(TWS), Managed File Transfers(MFT),XML, WebSphere MQ, Linux, SFTP",],
     },
     {
       id: generateId(),
       company: "Dairymaster",
       role: "Graduate Software Engineer",
       date: "May 2021 - May 2022",
-      tasks: [ "Developed a web application using React, Redux, and Typescript to display data from a REST API",
-        "Created a REST API using Node.js and Express to serve data from a MySQL database",
-        "Implemented a CI/CD pipeline using Jenkins to automate the deployment of the web application"],
+      tasks: [ "Developed a web application using Angular and Bootstrap",
+        "Building, testing and debugging RESTful APIs with ASP.NET ",
+        "Interactive and complex data viisualisation with use of Highcharts JS",
+    "Use of Zeplin to work with our UX designer to create well-structured web pages."],
     },
+   
+
   ];
 
 

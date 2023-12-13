@@ -22,8 +22,6 @@ function Intro() {
           <div style={{fontSize:"2rem"}}>
               <span>Full-Stack Developer</span>
               <br></br>
-              <span>Problem Solver</span>
-              <br></br>
               
           </div>
         </Col>     
