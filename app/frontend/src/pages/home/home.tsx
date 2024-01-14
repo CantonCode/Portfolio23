@@ -1,4 +1,3 @@
-import { AboutMe } from "../../components";
 import About from "../../components/About/About";
 import Intro from "../../components/Intro/Intro";
 import JobContainer from "../../components/Jobs/JobContainer/JobContainer";

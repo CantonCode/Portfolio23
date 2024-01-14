@@ -39,9 +39,6 @@ const shoot = () => {
   alert("Great Shot!");
 }
 
-const myFunction = function (someArgument: any) {
-  alert("Great Shot!");
-}
 
 export default function Tiles() {
   return (
