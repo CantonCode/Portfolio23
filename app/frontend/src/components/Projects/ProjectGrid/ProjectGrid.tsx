@@ -64,14 +64,16 @@ function ProjectGrid(){
             
             <Col sm={{span:7,offset:2}} style={{display:'flex',textAlign:'center',alignItems:'center'}}>
                             <h1 style={{color:'white'}}>Projects</h1>
-                            <hr style={{color:'white', width:'inherit',marginLeft:'3rem'}}/>
+                            <hr style={{color:'white', width:'50vw',marginLeft:'3rem'}}/>
             </Col>
 
-        {projects.map((proj, k) => (
+            <h1 style={{color:'white'}}>Coming Soon....</h1>
+
+        {/* {projects.map((proj, k) => (
                     <Col key={k} xs={12} md={6} lg={4} style={{height:'100%',paddingTop:'1rem',paddingBottom:'1rem'}}>
                         <ProjectCard {...proj}/>
                     </Col>                    
-        ))}
+        ))} */}
         </Row>
     </Container> 
   )
